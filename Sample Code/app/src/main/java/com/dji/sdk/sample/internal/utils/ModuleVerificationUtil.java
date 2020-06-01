@@ -32,6 +32,10 @@ public class ModuleVerificationUtil {
         return DJISampleApplication.getProductInstance() instanceof HandHeld;
     }
 
+    public static boolean isBatteryModuleAvailable() {
+        return isProductModuleAvailable() && (null != DJISampleApplication.getProductInstance().getBattery());
+    }
+
     public static boolean isCameraModuleAvailable() {
         return isProductModuleAvailable() && (null != DJISampleApplication.getProductInstance().getCamera());
     }

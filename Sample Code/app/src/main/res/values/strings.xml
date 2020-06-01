@@ -1,5 +1,5 @@
 <resources>
-    <string name="sample_app_name">DJI SDK Sample</string>
+    <string name="sample_app_name">ARAS Bridge</string>
     <string name="action_settings">Settings</string>
 
     <string name="sdk_version">DJI SDK Version: %1$s</string>
@@ -317,5 +317,9 @@
     <string name="cancel_transmitting">Cancel Transmitting</string>
     <string name="transmit_local_file">Transmit Local File</string>
     <string name="component_listview_health_information">Device Health Information</string>
+
+    <!-- ARAS -->
+    <string name="server_shutdow_sucessfuly_message">Server shutdown sucessfully</string>
+    <string name="server_started_listening_message">Server listening</string>
 
 </resources>

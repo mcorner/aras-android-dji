@@ -34,6 +34,7 @@ import androidx.core.content.ContextCompat;
 
 import com.dji.sdk.sample.R;
 import com.dji.sdk.sample.internal.model.ViewWrapper;
+import com.dji.sdk.sample.internal.utils.SocketServer;
 import com.dji.sdk.sample.internal.utils.ToastUtils;
 import com.dji.sdk.sample.internal.view.DemoListView;
 import com.dji.sdk.sample.internal.view.PresentableView;
@@ -107,6 +108,14 @@ public class MainActivity extends AppCompatActivity {
         contentFrameLayout = (FrameLayout) findViewById(R.id.framelayout_content);
         progressBar = (ProgressBar) findViewById(R.id.progress_bar);
         initParams();
+
+		
+        // start server socket	
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {	
+            startForegroundService(new Intent(MainActivity.this, SocketServer.class));	
+        } else {	
+            startService(new Intent(MainActivity.this, SocketServer.class));	
+        }
     }
 
 

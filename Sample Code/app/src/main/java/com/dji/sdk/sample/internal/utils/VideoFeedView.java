@@ -8,6 +8,8 @@ import android.view.TextureView;
 import android.view.TextureView.SurfaceTextureListener;
 import android.view.View;
 
+import com.dji.sdk.sample.internal.controller.ARASController.Handlers.ARASVideoHandler;
+
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -135,6 +137,7 @@ public class VideoFeedView extends TextureView implements SurfaceTextureListener
             videoWidth = codecManager.getVideoWidth();
             videoHeight = codecManager.getVideoHeight();
             adjustAspectRatio(videoWidth, videoHeight);
+            ARASVideoHandler.getInstance().updateCodecManager(codecManager);
         }
     }
     //endregion
