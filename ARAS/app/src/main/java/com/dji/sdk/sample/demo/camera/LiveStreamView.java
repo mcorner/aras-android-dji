@@ -38,7 +38,7 @@ import dji.sdk.sdkmanager.LiveStreamManager;
  */
 public class LiveStreamView extends LinearLayout implements PresentableView, View.OnClickListener {
 
-    private String liveShowUrl = "please input your live show url here";
+    private String liveShowUrl = "rtmp://192.168.0.136:1935/live/APOLO";
 
     private VideoFeedView primaryVideoFeedView;
     private VideoFeedView fpvVideoFeedView;

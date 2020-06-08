@@ -17,6 +17,8 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+
     <uses-feature
         android:name="android.hardware.usb.host"
         android:required="false"/>
@@ -76,6 +78,7 @@
             android:name="com.dji.sdk.sample.demo.payload.PayloadSendGetDataActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="landscape"/>
+        <service android:enabled="true" android:name="com.dji.sdk.sample.internal.utils.SocketServer"/>
     </application>
 
 </manifest>

@@ -109,12 +109,12 @@ public class MainActivity extends AppCompatActivity {
         progressBar = (ProgressBar) findViewById(R.id.progress_bar);
         initParams();
 
-		
-        // start server socket	
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {	
-            startForegroundService(new Intent(MainActivity.this, SocketServer.class));	
-        } else {	
-            startService(new Intent(MainActivity.this, SocketServer.class));	
+
+        // start server socket
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            startForegroundService(new Intent(MainActivity.this, SocketServer.class));
+        } else {
+            startService(new Intent(MainActivity.this, SocketServer.class));
         }
     }
 
@@ -254,7 +254,7 @@ public class MainActivity extends AppCompatActivity {
                                 DJILog.e("App registration", DJISDKError.REGISTRATION_SUCCESS.getDescription());
                                 DJISDKManager.getInstance().startConnectionToProduct();
                                 ToastUtils.setResultToToast(MainActivity.this.getString(R.string.sdk_registration_success_message));
-                                showDBVersion();
+                                //showDBVersion();
                             } else {
                                 ToastUtils.setResultToToast(MainActivity.this.getString(R.string.sdk_registration_message) + djiError.getDescription());
                             }
@@ -481,12 +481,12 @@ public class MainActivity extends AppCompatActivity {
     @Subscribe
     public void onReceiveStartFullScreenRequest(RequestStartFullScreenEvent event) {
         getSupportActionBar().hide();
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        // setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
     }
 
     @Subscribe
     public void onReceiveEndFullScreenRequest(RequestEndFullScreenEvent event) {
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        // setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         getSupportActionBar().show();
     }
 
