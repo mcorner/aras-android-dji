@@ -4,6 +4,7 @@
     package="com.dji.sdk.sample">
 
     <!-- SDK permission requirement -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -66,6 +67,8 @@
                 android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED"
                 android:resource="@xml/accessory_filter"/>
         </activity>
+
+        <service android:name="com.dji.sdk.sample.internal.utils.SocketServer"></service>
 
         <activity
             android:name="com.dji.sdk.sample.demo.payload.PayloadActivity"
