@@ -18,13 +18,13 @@ import com.dji.sdk.sample.internal.utils.ToastUtils;
 import com.dji.sdk.sample.internal.view.PresentableView;
 
 import dji.sdk.sdkmanager.DJISDKManager;
-import dji.upgrade.UpgradeManager;
-import dji.upgrade.component.firmware.UpgradeComponent;
-import dji.upgrade.component.firmware.UpgradeFirmwareListener;
-import dji.upgrade.component.firmware.model.FirmwareInformation;
-import dji.upgrade.component.firmware.model.FirmwareUpgradeProgress;
-import dji.upgrade.component.firmware.model.UpgradeComponentType;
-import dji.upgrade.component.firmware.model.UpgradeFirmwareState;
+import dji.sdk.upgrade.UpgradeManager;
+import dji.sdk.upgrade.component.UpgradeComponent;
+import dji.sdk.upgrade.component.UpgradeFirmwareListener;
+import dji.sdk.upgrade.component.model.FirmwareInformation;
+import dji.sdk.upgrade.component.model.FirmwareUpgradeProgress;
+import dji.sdk.upgrade.component.model.UpgradeComponentType;
+import dji.sdk.upgrade.component.model.UpgradeFirmwareState;
 
 /**
  * Class for live stream demo.
@@ -133,17 +133,17 @@ public class FirmwareUpgradeView extends LinearLayout implements View.OnClickLis
     private UpgradeFirmwareListener remoteControllerUpgradeListener = new UpgradeFirmwareListener() {
 
         @Override
-        public void onUpgradeFirmwareStateUpdated(@NonNull UpgradeFirmwareState state) {
+        public void onUpgradeFirmwareStateUpdated(UpgradeComponent var1, @NonNull UpgradeFirmwareState state) {
             showUpgradeFirmwareState(mRcUpgradeStateTV, "RC: " + state);
         }
 
         @Override
-        public void onFirmwareUpgradeProgressUpdated(FirmwareUpgradeProgress progress) {
+        public void onFirmwareUpgradeProgressUpdated(UpgradeComponent var1, FirmwareUpgradeProgress progress) {
             showFirmwareUpgradeProgress(mRcUpgradeProgressTV, progress, "Remote Controller:\n");
         }
 
         @Override
-        public void onConsistencyUpgradeRequestReceived() {
+        public void onConsistencyUpgradeRequestReceived(UpgradeComponent var1) {
             boolean canCancelConsistencyUpgrade = false;
             UpgradeComponent upgradeComponent = getRemoteControllerComponent();
             if (upgradeComponent != null) {
@@ -152,7 +152,7 @@ public class FirmwareUpgradeView extends LinearLayout implements View.OnClickLis
             showUpgradeConsistentUpdated(mRcConsistentStateTV, canCancelConsistencyUpgrade, "Remote Controller:\n");
         }
         @Override
-        public void onLatestFirmwareInformationUpdated(FirmwareInformation firmwareInformation) {
+        public void onLatestFirmwareInformationUpdated(UpgradeComponent var1, FirmwareInformation firmwareInformation) {
             UpgradeComponent upgradeComponent = getRemoteControllerComponent();
             showUpgradeFirmwareInfo(upgradeComponent, firmwareInformation);
         }
@@ -161,17 +161,17 @@ public class FirmwareUpgradeView extends LinearLayout implements View.OnClickLis
     private UpgradeFirmwareListener aircraftUpgradeListener = new UpgradeFirmwareListener() {
 
         @Override
-        public void onUpgradeFirmwareStateUpdated(@NonNull UpgradeFirmwareState state) {
+        public void onUpgradeFirmwareStateUpdated(UpgradeComponent var1, @NonNull UpgradeFirmwareState state) {
             showUpgradeFirmwareState(mAcUpgradeStateTV, "AC: " + state);
         }
 
         @Override
-        public void onFirmwareUpgradeProgressUpdated(FirmwareUpgradeProgress progress) {
+        public void onFirmwareUpgradeProgressUpdated(UpgradeComponent var1, FirmwareUpgradeProgress progress) {
             showFirmwareUpgradeProgress(mAcUpgradeProgressTV, progress, "Aircraft:\n");
         }
 
         @Override
-        public void onConsistencyUpgradeRequestReceived() {
+        public void onConsistencyUpgradeRequestReceived(UpgradeComponent var1) {
             boolean canCancelConsistencyUpgrade = false;
             UpgradeComponent upgradeComponent = getAircraftUpgradeComponent();
             if (upgradeComponent != null) {
@@ -181,7 +181,7 @@ public class FirmwareUpgradeView extends LinearLayout implements View.OnClickLis
         }
 
         @Override
-        public void onLatestFirmwareInformationUpdated(FirmwareInformation firmwareInformation) {
+        public void onLatestFirmwareInformationUpdated(UpgradeComponent var1, FirmwareInformation firmwareInformation) {
             UpgradeComponent upgradeComponent = getAircraftUpgradeComponent();
             showUpgradeFirmwareInfo(upgradeComponent, firmwareInformation);
         }

@@ -261,6 +261,13 @@ public class MainActivity extends AppCompatActivity {
                             Log.v(TAG, djiError.getDescription());
                             hideProcess();
                         }
+
+                        @Override
+                        public void onProductChanged(BaseProduct baseProduct) {
+                            Log.d(TAG, "onProductChanged");
+                            notifyStatusChange();
+                        }
+
                         @Override
                         public void onProductDisconnect() {
                             Log.d(TAG, "onProductDisconnect");
